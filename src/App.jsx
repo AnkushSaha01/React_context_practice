@@ -13,7 +13,7 @@ const App = () => {
     <div className="relative">
       <Nav setView={setView} />
       <div
-        className="h-[65vh] bg-cover bg-center relative"
+        className="h-[65vh] bg-cover bg-bottom relative"
         style={{ backgroundImage: `url(${FooterGraphic})` }}
       >
         <h1 className="text-3xl w-full text-center md:text-5xl font-poppins font-normal tracking-tighter text-white absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]  ">
