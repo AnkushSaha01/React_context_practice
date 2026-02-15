@@ -5,7 +5,7 @@ const Nav = ({ setView }) => {
   const { products } = useContext(LogStorage);
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-[100px] py-5 md:py-10 w-[100%] mx-auto md:bg-[#050310]/50 bg-[#050310]/80 backdrop-blur-sm`}
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 md:px-[100px] py-5 md:py-10 w-full mx-auto md:bg-[#050310]/50 bg-[#050310]/80 backdrop-blur-sm`}
     >
       <h2 className="text-xl md:text-2xl font-bold text-white">NxtGn</h2>
       <div className="flex items-center gap-4 md:gap-10 text-white">
