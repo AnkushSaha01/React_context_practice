@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import 'remixicon/fonts/remixicon.css';
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
