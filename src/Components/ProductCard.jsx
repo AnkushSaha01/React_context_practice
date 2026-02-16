@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
               localStorage.setItem("Products", JSON.stringify(updatedProducts));
               setProducts(updatedProducts);
             }}
-            className="bg-transparent border font-poppins font-medium tracking-tighter border-white flex-1 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black duration-300 cursor-pointer"
+            className="bg-transparent border font-poppins font-medium tracking-tighter border-[#7c5ae6] flex-1 text-[#7c5ae6] px-4 py-2 rounded-full hover:bg-[#7c5ae6] hover:text-white duration-300 cursor-pointer"
           >
             Add to cart
           </button>
