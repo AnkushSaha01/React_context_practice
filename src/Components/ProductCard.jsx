@@ -1,5 +1,10 @@
 import React from "react";
-import { RiHeartLine, RiHeartFill } from "@remixicon/react";
+import {
+  RiHeartLine,
+  RiHeartFill,
+  RiSubtractLine,
+  RiAddLine,
+} from "@remixicon/react";
 import { useContext } from "react";
 import { LogStorage } from "../Context/Context";
 
@@ -29,7 +34,7 @@ const ProductCard = ({ product }) => {
             onClick={() => {
               let updatedProducts = products.map((item) =>
                 item.name === product.name
-                  ? { ...item, addedToCart: !item.addedToCart }
+                  ? { ...item, addedToCart: !item.addedToCart, quantity: 1 }
                   : item,
               );
               localStorage.setItem("Products", JSON.stringify(updatedProducts));
@@ -40,20 +45,50 @@ const ProductCard = ({ product }) => {
             Add to cart
           </button>
         ) : (
-          <button
-            onClick={() => {
-              let updatedProducts = products.map((item) =>
-                item.name === product.name
-                  ? { ...item, addedToCart: !item.addedToCart }
-                  : item,
-              );
-              localStorage.setItem("Products", JSON.stringify(updatedProducts));
-              setProducts(updatedProducts);
-            }}
-            className=" font-poppins font-medium tracking-tighter bg-red-500 flex-1 text-white px-4 py-2 rounded-full hover:bg-red-800  duration-300 cursor-pointer"
-          >
-            Remove from cart
-          </button>
+          <div className="w-full bg-[#7c5ae6]/30  rounded-full overflow-hidden flex items-center justify-between text-white font-bold gap-2">
+            <button
+              onClick={() => {
+                const updatedProducts = products.map((item) => {
+                  if (item.name === product.name) {
+                    if (item.quantity > 1) {
+                      return { ...item, quantity: item.quantity - 1 };
+                    } else {
+                      return { ...item, addedToCart: false };
+                    }
+                  }
+                  return item;
+                });
+                localStorage.setItem(
+                  "Products",
+                  JSON.stringify(updatedProducts),
+                );
+                setProducts(updatedProducts);
+              }}
+              className="w-[30%] bg-[#7c5ae6]/50 border-r border-white/30
+             py-2 px-4 flex items-center justify-center hover:bg-[#7c5ae6]/80 duration-300 cursor-pointer "
+            >
+              <RiSubtractLine />
+            </button>
+            <h4>{product.quantity || 1}</h4>
+            <button
+              onClick={() => {
+                const updatedProducts = products.map((item) => {
+                  if (item.name === product.name) {
+                    return { ...item, quantity: (item.quantity || 1) + 1 };
+                  }
+                  return item;
+                });
+                localStorage.setItem(
+                  "Products",
+                  JSON.stringify(updatedProducts),
+                );
+                setProducts(updatedProducts);
+              }}
+              className="w-[30%] bg-[#7c5ae6]/50 border-l border-white/30 py-2 px-4 flex items-center justify-center hover:bg-[#7c5ae6]/80 duration-300 cursor-pointer "
+            >
+              <RiAddLine />
+            </button>
+          </div>
         )}
         <button
           onClick={() => {
