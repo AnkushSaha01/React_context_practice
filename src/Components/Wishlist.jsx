@@ -29,7 +29,7 @@ const Wishlist = () => {
             <h1 className="text-white font-poppins text-3xl md:text-5xl font-medium tracking-tighter">
               Wishlist
             </h1>
-            <div className="flex flex-wrap gap-5 md:gap-10 justify-center">
+            <div className="flex flex-wrap gap-5 md:gap-10 justify-start">
               {wishItems.map((item, index) => (
                 <ProductCard key={index} product={item} />
               ))}

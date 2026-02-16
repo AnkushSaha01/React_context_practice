@@ -28,10 +28,19 @@ const Cart = () => {
             <h1 className="text-white font-poppins text-3xl md:text-5xl font-medium tracking-tighter">
               Cart
             </h1>
-            <div className="flex flex-wrap gap-5 md:gap-10 justify-center">
+            <div className="flex flex-wrap gap-5 md:gap-10 justify-start">
               {cartItems.map((item, index) => (
                 <ProductCard key={index} product={item} />
               ))}
+            </div>
+            <div className="w-fit flex items-center justify-between text-5xl text-white font-bold gap-2">
+              <h1>Total -</h1>
+              <p>
+                {cartItems.reduce(
+                  (acc, item) => acc + item.price * item.quantity,
+                  0,
+                )}
+              </p>
             </div>
           </div>
         </div>
